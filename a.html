@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Формулы по физике</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+
+            /* Статичный цветной градиентный фон */
+            background: linear-gradient(135deg,
+                #e3f2fd 0%,
+                #f3e5f5 25%,
+                #e8f5e8 50%,
+                #fff3e0 75%,
+                #ffebee 100%);
+
+            /* Формулы с разными цветами - статичные */
+            background-image:
+                url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.15'%3E%3Ctext x='20' y='30' font-family='Cambria, serif' font-size='12' fill='%232196F3'%3EE=mc²%3C/text%3E%3Ctext x='150' y='50' font-family='Cambria, serif' font-size='14' fill='%237B1FA2'%3E∇⋅E=ρ/ε₀%3C/text%3E%3Ctext x='40' y='80' font-family='Cambria, serif' font-size='10' fill='%234CAF50'%3Ea²+b²=c²%3C/text%3E%3Ctext x='120' y='100' font-family='Cambria, serif' font-size='11' fill='%23FF9800'%3EF=ma%3C/text%3E%3Ctext x='30' y='120' font-family='Cambria, serif' font-size='13' fill='%23F44336'%3Eeⁱπ+1=0%3C/text%3E%3Ctext x='140' y='140' font-family='Cambria, serif' font-size='12' fill='%23009688'%3E∫f(x)dx%3C/text%3E%3Ctext x='50' y='160' font-family='Cambria, serif' font-size='11' fill='%23FF5722'%3E∂u/∂t%3C/text%3E%3Ctext x='130' y='180' font-family='Cambria, serif' font-size='10' fill='%235C6BC0'%3E∑xₙ%3C/text%3E%3C/g%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.12'%3E%3Ctext x='80' y='40' font-family='Cambria, serif' font-size='12' fill='%239C27B0'%3Eψ=ψ(x,t)%3C/text%3E%3Ctext x='160' y='70' font-family='Cambria, serif' font-size='11' fill='%23007C91'%3EF=GmM/r²%3C/text%3E%3Ctext x='25' y='60' font-family='Cambria, serif' font-size='13' fill='%238BC34A'%3E∇×E=−∂B/∂t%3C/text%3E%3Ctext x='100' y='130' font-family='Cambria, serif' font-size='10' fill='%23E91E63'%3Elim x→∞%3C/text%3E%3Ctext x='170' y='110' font-family='Cambria, serif' font-size='12' fill='%23009688'%3Eσ=εE%3C/text%3E%3Ctext x='60' y='150' font-family='Cambria, serif' font-size='11' fill='%23FF6D00'%3Eħ²/2m∇²ψ%3C/text%3E%3Ctext x='140' y='30' font-family='Cambria, serif' font-size='10' fill='%233F51B5'%3E∮E·dA%3C/text%3E%3C/g%3E%3C/svg%3E");
+            background-size: 250px 250px, 220px 220px;
+            background-blend-mode: multiply;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, #2196F3, #9C27B0, #4CAF50) 1;
+            padding-bottom: 15px;
+            font-size: 2.2em;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-top: 35px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.1), rgba(156, 39, 176, 0.1));
+            border-left: 5px solid;
+            border-image: linear-gradient(180deg, #2196F3, #9C27B0) 1;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 1.05em;
+        }
+
+        ul {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 248, 248, 0.9));
+            padding: 25px 35px;
+            border-radius: 12px;
+
+border-left: 5px solid #4CAF50;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        li {
+            margin-bottom: 12px;
+            padding-left: 10px;
+            font-size: 1.05em;
+        }
+
+        .formula {
+            font-family: 'Cambria', 'Times New Roman', serif;
+            font-style: italic;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 5px 3px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Разные цвета для формул */
+        .formula-physics { background: linear-gradient(135deg, #E3F2FD, #BBDEFB); color: #1565C0; }
+        .formula-math { background: linear-gradient(135deg, #F3E5F5, #E1BEE7); color: #7B1FA2; }
+        .formula-geometry { background: linear-gradient(135deg, #E8F5E8, #C8E6C9); color: #2E7D32; }
+        .formula-calculus { background: linear-gradient(135deg, #FFF3E0, #FFE0B2); color: #EF6C00; }
+        .formula-complex { background: linear-gradient(135deg, #FFEBEE, #FFCDD2); color: #C62828; }
+
+        .formula-block {
+            font-family: 'Cambria', 'Times New Roman', serif;
+            font-style: italic;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(245, 245, 245, 0.9));
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+            border: 2px solid;
+            border-image: linear-gradient(90deg, #2196F3, #9C27B0, #4CAF50) 1;
+            font-size: 1.2em;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.05), rgba(76, 175, 80, 0.05));
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(33, 150, 243, 0.2);
+        }
+
+        .color-legend {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .color-item {
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+    </style>
+        <h1> Формулы по физике</h1>
+<p><br>
+Скорость при равномерном движении :<br>
+• v = S / t<br><br>
+
+Средняя скорость :<br>
+• v_ср = (S₁ + S₂ + ...) / (t₁ + t₂ + ...)<br>
+<br>
+Скорость при равноускоренном движении :<br>
+• v = v₀ + at<br><br>
+
+Путь при равноускоренном движении :<br>
+• S = v₀t + (at²)/2<br><br>
+
+Без времени (уравнение движения) :<br>
+• S = (v² - v₀²) / (2a)<br><br>
+
+Координата при равномерном движении :<br>
+• x = x₀ + vt<br>
+
+Координата при равноускоренном движении :<br>
+• x = x₀ + v₀t + (at²)/2<br><br>
+
+Угловая скорость :<br>
+• ω = φ / t = 2π / T = 2πν<br><br>
+
+Линейная скорость при вращении :<br>
+• v = ωR<br><br>
+
+Центростремительное ускорение :<br>
+• a_цс = v² / R = ω²R<br><br>
+
+Ускорение при криволинейном движении :<br>
+• a = √(a_τ² + a_цс²)<br><br>
+
+Второй закон Ньютона :<br>
+• F = ma<br><br>
+
+Сила тяжести :<br>
+• F_тяж = mg<br>
+
+Сила упругости (Закон Гука) :<br>
+• F_упр = k|Δx|<br><br>
+
+Сила трения скольжения :<br>
+• F_тр = μN<br>
+<br>
+Сила трения покоя :<br>
+• 0 ≤ F_тр.покоя ≤ μN<br><br>
+
+Сила всемирного тяготения :<br>
+• F = G * (m₁m₂)/r²<br><br>
+
+Ускорение свободного падения на высоте :<br>
+• g_h = G * M / (R + h)²<br>
+<br>
+Первая космическая скорость :<br>
+• v₁ = √(gR) = √(GM/R)<br>
+<br>
+Вторая космическая скорость :<br>
+• v₂ = √(2) * v₁<br>
+<br>
+Вес тела (неподвижное или равномерное) :<br>
+• P = mg<br><br>
+
+Вес тела (ускорение вверх) :<br>
+• P = m(g + a)<br><br>
+
+Вес тела (ускорение вниз) :<br>
+• P = m(g - a)<br><br>
+
+Невесомость :<br>
+• P = 0 при a = g<br><br>
+
+Кинетическая энергия :<br>
+• E_к = (mv²)/2<br><br>
+
+Потенциальная энергия в поле тяжести :<br>
+• E_п = mgh<br><br>
+
+Потенциальная энергия упругой деформации :<br>
+• E_п = (k(Δx)²)/2<br><br>
+
+Механическая энергия :<br>
+• E = E_к + E_п<br><br>
+
+Закон сохранения механической энергии :<br>
+• E_к1 + E_п1 = E_к2 + E_п2<br><br>
+
+Работа силы :<br>
+• A = F * S * cosα<br><br>
+
+Теорема о кинетической энергии :<br>
+• A = ΔE_к = (mv₂²)/2 - (mv₁²)/2<br><br>
+
+Мощность :<br>
+• P = A / t = F * v<br><br>
+
+Коэффициент полезного действия :<br>
+• η = (A_полезн / A_затр) * 100%<br><br>
+
+Импульс тела :<br>
+• p = mv<br><br>
+
+Импульс силы :<br>
+• FΔt = Δp<br><br>
+
+Закон сохранения импульса :<br>
+• m₁v₁ + m₂v₂ = m₁u₁ + m₂u₂<br><br>
+
+Упругий удар (1D) :<br>
+• v₁′ = ((m₁-m₂)v₁ + 2m₂v₂)/(m₁+m₂)<br><br>
+
+Неупругий удар :<br>
+• u = (m₁v₁ + m₂v₂)/(m₁+m₂)<br><br>
+
+Условие равновесия тел :<br>
+• ΣF = 0, ΣM = 0<br><br>
+
+Момент силы :<br>
+• M = F * l<br><br>
+
+Плечо силы :<br>
+• l — расстояние до оси вращения<br><br>
+
+Правило рычага :<br>
+• F₁ * l₁ = F₂ * l₂<br><br>
+
+Давление :<br>
+• p = F / S<br><br>
+
+Давление столба жидкости :<br>
+• p = ρgh<br><br>
+
+Сила Архимеда :<br>
+• F_A = ρgV_погр<br><br>
+
+Условие плавания тел :<br>
+• F_A = P или ρ_жидк > ρ_тела<br><br>
+
+Закон Паскаля :<br>
+• p = F₁/S₁ = F₂/S₂<br><br>
+
+Расход жидкости :<br>
+• Q = v * S = const<br><br>
+
+Количество вещества :<br>
+• ν = m / μ = N / N_A<br><br>
+
+Число Авогадро :<br>
+• N_A ≈ 6.022·10²³ моль⁻¹<br><br>
+
+Масса молекулы :<br>
+• m_0 = μ / N_A<br><br>
+
+Основное уравнение МКТ :<br>
+• p = (2/3) * n * E_ср<br><br>
+
+Средняя кинетическая энергия молекулы :<br>
+• E_ср = (3/2) * kT<br><br>
+
+Температура по шкале Кельвина :<br>
+• T(K) = t(°C) + 273.15<br><br>
+
+Постоянная Больцмана :<br>
+• k ≈ 1.38·10⁻²³ Дж/К<br><br>
+
+Средняя квадратичная скорость :<br>
+• v_кв = √(3kT/m₀) = √(3RT/μ)<br><br>
+
+Уравнение Менделеева-Клапейрона :<br>
+• pV = νRT<br><br>
+
+Универсальная газовая постоянная :<br>
+• R ≈ 8.31 Дж/(моль·К)<br><br>
+
+Изобарный процесс (Закон Гей-Люссака) :<br>
+• V/T = const<br><br>
+
+Изохорный процесс (Закон Шарля) :<br>
+• p/T = const<br><br>
+
+Изотермический процесс (Закон Бойля-Мариотта) :<br>
+• pV = const<br><br>
+
+Уравнение Клапейрона :<br>
+• (p₁V₁)/T₁ = (p₂V₂)/T₂<br><br>
+
+Первое начало термодинамики :<br>
+• Q = ΔU + A′<br><br>
+
+Работа газа :<br>
+• A′ = pΔV<br><br>
+
+Внутренняя энергия идеального газа :<br>
+• U = (i/2) * νRT<br><br>
+
+Теплоемкость при постоянном объеме :<br>
+• C_V = (i/2) * R<br><br>
+
+Теплоемкость при постоянном давлении :<br>
+• C_p = C_V + R<br><br>
+
+Адиабатный процесс :<br>
+• pV^γ = const, γ = C_p/C_V<br><br>
+
+КПД тепловой машины :<br>
+• η = (Q_нагр - Q_хол) / Q_нагр<br><br>
+
+КПД цикла Карно :<br>
+• η = (T_нагр - T_хол) / T_нагр<br><br>
+
+Закон Кулона :<br>
+• F = k * (|q₁q₂|)/r²<br><br>
+
+Коэффициент k :<br>
+• k = 1/(4πε₀ε)<br><br>
+
+Напряженность электрического поля :<br>
+• E = F/q<br><br>
+
+Напряженность точечного заряда :<br>
+• E = k * (|q|)/r²<br><br>
+
+Принцип суперпозиции полей :<br>
+• E = E₁ + E₂ + ...<br><br>
+
+Потенциал электрического поля :<br>
+• φ = E_п / q<br><br>
+
+Потенциал точечного заряда :<br>
+• φ = k * q / r<br><br>
+
+Напряжение (разность потенциалов) :<br>
+• U = A/q = φ₁ - φ₂<br>
+
+Связь U и E для однородного поля :<br>
+• U = E * d<br><br>
+
+Электроемкость проводника :<br>
+• C = q/φ<br><br>
+
+Электроемкость плоского конденсатора :<br>
+• C = (ε₀εS)/d<br><br>
+
+Энергия заряженного конденсатора :<br>
+• W = (qU)/2 = (CU²)/2 = q²/(2C)<br><br>
+
+Электрический дипольный момент :<br>
+• p = ql<br><br>
+
+Сила тока :<br>
+• I = q/t<br><br>
+
+Плотность тока :<br>
+• j = I/S<br><br>
+
+Закон Ома для участка цепи :<br>
+• I = U/R<br><br>
+
+Сопротивление проводника :<br>
+• R = ρ * l/S<br><br>
+
+Зависимость сопротивления от температуры :<br>
+• R = R₀(1 + αΔt)<br><br>
+
+Последовательное соединение :<br>
+• R_общ = R₁ + R₂ + ..., I = const<br><br>
+
+Параллельное соединение :<br>
+• 1/R_общ = 1/R₁ + 1/R₂ + ..., U = const<br><br>
+
+Закон Ома для полной цепи :<br>
+• I = ℰ/(R + r)<br><br>
+
+Работа тока :<br>
+• A = UIt = I²Rt = (U²/R)t<br><br>
+
+Мощность тока :<br>
+• P = UI = I²R = U²/R<br><br>
+
+Мощность источника :<br>
+• P_ист = Iℰ<br><br>
+
+Правила Кирхгофа (1-е) :<br>
+• ΣI_вх = ΣI_вых<br><br>
+
+Правила Кирхгофа (2-е) :<br>
+• Σℰ = ΣIR<br><br>
+
+Сила Ампера :<br>
+• F_A = I * B * l * sinα<br><br>
+
+Сила Лоренца :<br>
+• F_Л = q * v * B * sinα<br><br>
+
+Магнитная индукция :<br>
+• B = F_А/(I * l)<br><br>
+
+Магнитный поток :<br>
+• Φ = B * S * cosα<br><br>
+
+Индукция прямого тока :<br>
+• B = (μ₀μI)/(2πR)<br><br>
+
+Индукция в центре витка :<br>
+• B = (μ₀μI)/(2R)<br><br>
+
+Индукция соленоида :<br>
+• B = μ₀μ * n * I<br><br>
+
+Закон электромагнитной индукции (Фарадей) :<br>
+• ℰ_инд = -ΔΦ/Δt<br><br>
+
+ЭДС в движущемся проводнике :<br>
+• ℰ = B * v * l * sinα<br><br>
+
+Индуктивность :<br>
+• L = Φ/I<br><br>
+
+ЭДС самоиндукции :<br>
+• ℰ_си = -L * (ΔI/Δt)<br><br>
+
+Энергия магнитного поля :<br>
+• W = (L * I²)/2<br><br>
+
+Уравнение гармонических колебаний :<br>
+• x = A * cos(ωt + φ₀)<br><br>
+
+Скорость при гармонических колебаниях :<br>
+• v = -Aω * sin(ωt + φ₀)<br><br>
+
+Ускорение при гармонических колебаниях :<br>
+• a = -Aω² * cos(ωt + φ₀)<br><br>
+
+Циклическая частота :<br>
+• ω = 2πν = 2π/T<br><br>
+
+Период колебаний пружинного маятника :<br>
+• T = 2π * √(m/k)<br><br>
+
+Период колебаний математического маятника :<br>
+• T = 2π * √(l/g)<br><br>
+
+Собственная частота :<br>
+• ν₀ = 1/T<br><br>
+
+Энергия колебаний :<br>
+• E = (kA²)/2 = (mω²A²)/2<br><br>
+
+Длина волны :<br>
+• λ = v * T = v / ν<br><br>
+
+Уравнение бегущей волны :<br>
+• ξ = A * cos(ωt - kx)<br><br>
+
+Волновое число :<br>
+• k = 2π/λ<br><br>
+
+Скорость волны в струне :<br>
+• v = √(F/ρ₁)<br><br>
+
+Скорость звука в газе :<br>
+• v = √(γRT/μ)<br><br>
+
+Эффект Доплера для звука :<br>
+• ν′ = ν * (v ± v_пр)/(v ∓ v_ист)<br><br>
+
+Закон отражения :<br>
+• α = β<br><br>
+
+Закон преломления (Снеллиуса) :<br>
+• n₁ * sinα = n₂ * sinβ<br><br>
+
+Абсолютный показатель преломления :<br>
+• n = c/v<br><br>
+
+Угол полного внутреннего отражения :<br>
+• sinα_0 = n₂/n₁<br><br>
+
+Формула тонкой линзы :<br>
+• 1/F = 1/d + 1/f<br><br>
+
+Оптическая сила линзы :<br>
+• D = 1/F<br><br>
+
+Увеличение линзы :<br>
+• Γ = H/h = f/d<br><br>
+
+Формула сферического зеркала :<br>
+• 1/F = 1/d + 1/f, F = R/2<br><br>
+
+Условие максимума дифракции решетки :<br>
+• d * sinφ = mλ<br><br>
+
+Постоянная решетки :<br>
+• d = 1/N (N - число штрихов на 1 м)<br><br>
+
+Условие минимума на щели :<br>
+• a * sinφ = mλ<br><br>
+
+Оптическая разность хода :<br>
+• Δ = L₂ - L₁<br><br>
+
+Условие максимума интерференции :<br>
+• Δ = mλ<br><br>
+
+Условие минимума интерференции :<br>
+• Δ = (2m+1)λ/2<br><br>
+
+Ширина полосы интерференции :<br>
+• Δx = λ * L/d<br><br>
+
+Уравнение Эйнштейна для фотоэффекта :<br>
+• hν = A_вых + (mv²)/2<br><br>
+
+Максимальная кинетическая энергия фотоэлектронов :<br>
+• E_к max = eU_з<br><br>
+
+Красная граница фотоэффекта :<br>
+• ν_мин = A_вых / h<br><br>
+
+Импульс фотона :<br>
+• p = h/λ<br><br>
+
+Энергия фотона :<br>
+• E = hν = hc/λ<br><br>
+
+Постоянная Планка :<br>
+• h ≈ 6.63·10⁻³⁴ Дж·с<br><br>
+
+Постулаты Бора :<br>
+• 1. Стационарные орбиты, 2. hν = E_m - E_n<br><br>
+
+Энергия электрона в атоме водорода :<br>
+• E_n = -13.6 эВ / n²<br><br>
+
+Длина волны в спектре водорода :<br>
+• 1/λ = R*(1/m² - 1/n²)<br><br>
+
+Постоянная Ридберга :<br>
+• R ≈ 1.097·10⁷ м⁻¹<br><br>
+
+Закон радиоактивного распада :<br>
+• N = N₀ * 2^(-t/T) = N₀ * e^(-λt)<br><br>
+
+Период полураспада :<br>
+• T = ln2/λ ≈ 0.693/λ<br><br>
+
+Активность препарата :<br>
+• A = λN = A₀ * 2^(-t/T)<br><br>
+
+Дефект массы :<br>
+• Δm = Z*m_p + N*m_n - M_ядра<br><br>
+
+Энергия связи :<br>
+• E_св = Δm * c²<br><br>
+
+Удельная энергия связи :<br>
+• ε = E_св / A<br><br>
+
+Правило смещения (альфа-распад) :<br>
+• ᴢXᴬ → ᴢ₋₂Yᴬ⁻⁴ + ₂He⁴<br><br>
+
+Правило смещения (бета-распад) :<br>
+• ᴢXᴬ → ᴢ₊₁Yᴬ + ₋₁e⁰ + ν̃<br><br>
+
+Релятивистское сокращение длины :<br>
+• l = l₀ * √(1 - v²/c²)<br><br>
+
+Замедление времени :<br>
+• Δt = Δt₀ / √(1 - v²/c²)<br><br>
+
+Релятивистская масса :<br>
+• m = m₀ / √(1 - v²/c²)<br><br>
+
+Релятивистский импульс :<br>
+• p = m₀v / √(1 - v²/c²)<br><br>
+
+Энергия покоя :<br>
+• E₀ = m₀c²<br><br>
+
+Полная энергия :<br>
+• E = mc² = E₀ + E_к<br><br>
+
+Связь энергии и импульса :<br>
+• E² = (pc)² + (m₀c²)²</p>
+</body>
+</html>
